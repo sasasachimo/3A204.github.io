@@ -10,7 +10,7 @@ var array = ['Year','Month','Day','Minute','Place','Benefits','Holiday','a','b',
 function getJsonp_GAS() {
 	$.ajax({
 		type: 'GET',
-		url: 'https://script.google.com/macros/s/AKfycbyemQYjn5d076WRnyLNn6_JQJpGJlTNeInmlleVOdjLoRZK-5m7/exec',
+		url: 'https://script.google.com/macros/s/AKfycbyxVoeffG35Vn_9hzpKDn0Ebx8iICeHTlHCxwWvSbYp9t5JaVY/exec',
 		dataType: 'jsonp',
         jsonpCallback: 'jsondata',
 		success: function(json){
