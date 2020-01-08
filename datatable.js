@@ -4,7 +4,7 @@ window.onload = function(){
 	getJsonp_GAS();
 }
 
-var array = ['Year','Month','Day','Minute','Place','Benefits','Holiday','a','b','c','d','e','f'];
+var array = ['Year','Month','Day','Minute','Place','Benefits','Holiday','a','b','c','d','e','f','g','h'];
 
 // 【main-script】 スプレッドシート内の記述をjsonデータとして読み込み html 内へ入れ込む
 function getJsonp_GAS() {
@@ -17,7 +17,7 @@ function getJsonp_GAS() {
             var wak = "";
             for (i = 0; i < json.length; i++) {
                 wak += "<tr>\n";
-                for (j = 0; j < 13; j++) {
+                for (j = 0; j < 15; j++) {
                     wak += "<td>";
                     wak += json[i][array[j]];
                     wak += "</td>\n";
@@ -29,12 +29,17 @@ function getJsonp_GAS() {
     });
   
 
-$(document).ajaxComplete(function() {
-    $.extend( $.fn.dataTable.defaults, { 
-        language: {
-            url: "http://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Japanese.json"
-        } 
-    }); 
-        $('#whole').DataTable();
+    $(document).ajaxComplete(function() {
+        $.extend( $.fn.dataTable.defaults, { 
+            language: {
+                url: "http://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Japanese.json"
+            } 
+        }); 
+        $('#whole').DataTable({
+            paging: true
+            , retrieve :true
+            , order: [ [ 0, "desc" ] ]
+            , scrollX: true
+        });
     })
 };
